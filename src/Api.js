@@ -3,7 +3,7 @@
 const Api = {
     apiKey: '57a9d5d1',
     search: function (searchWords){
-        return this.fetch(`&s=${searchWords}`);
+        return this.fetch(`&s=${searchWords}&type=movie`);
     },
     getMovie: function(imdbID){
         return this.fetch(`&i=${imdbID}&plot=full`);
