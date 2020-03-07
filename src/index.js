@@ -7,7 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import './index.css';
 import moovieApp from "./reducers";
-import App from './components/App';
+import MoovieApp from './components/MoovieApp';
 import rootSaga from './sagas'
 import * as serviceWorker from './serviceWorker';
 
@@ -22,7 +22,7 @@ sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <MoovieApp />
     </Provider>,
     document.getElementById('root'));
 
