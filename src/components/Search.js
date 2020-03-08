@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import "../assets/scss/components/Search.scss";
 
 import VisibleSearchResults from "../containers/VisibleSearchResults";
+import LoadIndicator from "./LoadIndicator";
 
 export default class Search extends React.Component {
 
@@ -31,7 +33,7 @@ export default class Search extends React.Component {
             }, 500);
 
         this.props.onSearchInputChange(searchInputValue);
-        if(this.props.searchResults && Object.keys(this.props.searchResults).length > 0) this.props.onClearSearchResults();
+        if (this.props.searchResults && Object.keys(this.props.searchResults).length > 0) this.props.onClearSearchResults();
 
         this.setState({
             timeoutFunctionId: timeoutFunctionId
@@ -43,10 +45,21 @@ export default class Search extends React.Component {
         return (
             <>
                 <div className="Search">
-                    <input name="searchInput" onChange={this.handleSearchInputChange}
-                           value={this.props.searchInputValue}/>
-                    {this.props.loading ? 'Loading...' : ''}
-                    <VisibleSearchResults />
+                        <div className="search-content">
+                            <div className="search-wrap">
+                                <input name="searchInput"
+                                       aria-label="search-box"
+                                       onChange={this.handleSearchInputChange}
+                                       value={this.props.searchInputValue}
+                                       placeholder="What do you want to find?"
+                                       autoComplete="off"
+                                       className={this.props.searchResults && Object.keys(this.props.searchResults).length > 0 ? 'show-results' : ''}
+                                />
+                                {this.props.loading ?
+                                    <LoadIndicator /> : ''}
+                            </div>
+                            <VisibleSearchResults/>
+                        </div>
                 </div>
             </>
         );

@@ -1,0 +1,12 @@
+.Footer{
+  text-align: center;
+  padding: 2rem 0;
+
+  .app-content:not(.Home-page) &{
+    margin-top: auto;
+    background-color: #f1f1f1;
+  }
+  @media all and (max-height: 823px) {
+    margin-top: auto;
+  }
+}

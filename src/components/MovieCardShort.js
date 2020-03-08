@@ -1,19 +1,23 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
+import "../assets/scss/components/MovieCardShort.scss";
 
 function MovieCardShort(props) {
 
     const {movie, onClick} = props;
 
     return (
-        <div className="movies-list-item" key={movie.imdbID}>
-            <Link to={`/${movie.imdbID}`} onClick={onClick}>
-                { movie.Poster !== 'N/A' ?
-                    <img src={movie.Poster} style={{maxWidth: '5rem'}} alt={movie.Title}/> : '' }
-                {movie.Title} Year: {movie.Year}
-            </Link>
-        </div>
+        <Link to={`/${movie.imdbID}`} onClick={onClick} className="Movie-card-short grid align-items-center" key={movie.imdbID}>
+            {movie.Poster !== 'N/A' ?
+                <div className="movie-poster">
+                    <img src={movie.Poster} alt={movie.Title}/>
+                </div> : ''}
+                <div className="movie-info">
+                    <div className="movie-title">{movie.Title}</div>
+                    <div className="movie-year">Year: {movie.Year}</div>
+                </div>
+        </Link>
     );
 }
 

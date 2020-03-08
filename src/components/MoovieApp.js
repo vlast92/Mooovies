@@ -6,29 +6,23 @@ import {
     Switch,
     Route
 } from "react-router-dom";
-import Header from "./Header";
-import Footer from "./Footer";
-import AppWelcome from "./AppWelcome";
-import VisibleSearch from "../containers/VisibleSearch";
-import VisibleMovieCardFull from "../containers/VisibleMovieCardFull";
+import HomePage from "./HomePage";
+import MovieDetailsPage from "./MovieDetailsPage";
 
 function MoovieApp() {
 
-    return(
+    return (
         <div className="Moovie-app">
             <Router>
                 <Switch>
                     <Route path="/:imdbID">
-                        <Header />
-                        <VisibleMovieCardFull />
+                        <MovieDetailsPage/>
                     </Route>
                     <Route path="/">
-                        <AppWelcome />
-                        <VisibleSearch/>
+                       <HomePage />
                     </Route>
                 </Switch>
             </Router>
-            <Footer />
         </div>
     );
 }

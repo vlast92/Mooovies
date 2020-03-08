@@ -1,10 +1,13 @@
 import React from "react";
+import "../assets/scss/components/Footer.scss"
 
 function Footer() {
 
     return (
         <footer className="Footer">
-            © 2020 moovie
+            <div className="container">
+                © 2020 moovie
+            </div>
         </footer>
     );
 }

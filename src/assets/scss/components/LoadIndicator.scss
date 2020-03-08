@@ -1,0 +1,21 @@
+.Load-indicator{
+  padding: .5rem;
+
+  .loading-icon{
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: .188rem solid #e41f26;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: rotateAnimation 2s linear infinite;
+  }
+  .loading-text{
+    margin-left: .5rem;
+    vertical-align: top;
+  }
+  @keyframes rotateAnimation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+}

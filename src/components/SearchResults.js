@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import "../assets/scss/components/SearchResults.scss";
 
 import MovieCardShort from "./MovieCardShort";
 
@@ -9,15 +10,15 @@ function SearchResults(props){
     let listContent;
 
     if(searchResults.Search){
-        listContent = searchResults.Search.map(movie => <MovieCardShort key={movie.imdbID} movie={movie} onClick={onResultItemClick} />);
+        listContent = searchResults.Search.map(movie => <MovieCardShort key={movie.imdbID} movie={movie} onClick={onResultItemClick}/>);
     }else if(searchResults.Error){
-        listContent = <span>Error: {searchResults.Error}</span>;
+        listContent = <div className="error">Error: {searchResults.Error}</div>;
     }
 
     return (
-        <div className="movies-list">
-            {listContent}
-        </div>
+        <>
+        {listContent? <div className="Search-results" aria-label="search-results">{listContent}</div> : ""}
+        </>
     );
 }
 

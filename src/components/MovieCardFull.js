@@ -1,6 +1,9 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
 import PropTypes from 'prop-types';
+import "../assets/scss/components/MovieCardFull.scss"
+
+import LoadIndicator from "./LoadIndicator";
 
 class MovieCardFull extends React.Component {
 
@@ -28,7 +31,7 @@ class MovieCardFull extends React.Component {
         let ratings;
 
         if (movieInfo.Ratings) {
-            ratings = <ul>
+            ratings = <ul className="ratings-list">
                 {
                     movieInfo.Ratings.map(rating =>
                         <li key={rating.Source}>{rating.Source} : {rating.Value}</li>)
@@ -36,66 +39,68 @@ class MovieCardFull extends React.Component {
         }
 
         return (
-            <div className="movie-card-full">
-                {
-                    movieLoading ?
-                        "Loading movie info..." :
-                        <div className="card-content">
-                            {movieInfo.Error ? `Error: ${movieInfo.Error}` :
-                                <>
-                                    <div className="card-head">
-                                        {movieInfo.Poster !== 'N/A' ?
-                                            <div className="poster">
-                                                <img src={movieInfo.Poster} alt={movieInfo.Title}/>
-                                            </div> : ''}
-                                        <div>
-                                            <h1>{movieInfo.Title}</h1>
-                                            <ul>
-                                                <li>
-                                                    Year: {movieInfo.Year}
-                                                </li>
-                                                <li>
-                                                    Released: {movieInfo.Released}
-                                                </li>
-                                                <li>
-                                                    Country: {movieInfo.Country}
-                                                </li>
-                                                <li>
-                                                    Genre: {movieInfo.Genre}
-                                                </li>
-                                                <li>
-                                                    Runtime: {movieInfo.Runtime}
-                                                </li>
-                                                <li>
-                                                    Production: {movieInfo.Production}
-                                                </li>
-                                                <li>
-                                                    Director: {movieInfo.Director}
-                                                </li>
-                                                <li>
-                                                    Writer: {movieInfo.Writer}
-                                                </li>
-                                                <li>
-                                                    Actors: {movieInfo.Actors}
-                                                </li>
-                                                <li>
-                                                    Awards: {movieInfo.Awards}
-                                                </li>
-                                                {ratings ?
+            <div className="Movie-card-full">
+                <div className="container">
+                    {
+                        movieLoading ?
+                            <LoadIndicator text="Loading movie info..." /> :
+                            <div className="card-content">
+                                {movieInfo.Error ? <div className="error">Error: {movieInfo.Error}</div> :
+                                    <>
+                                        <div className="card-head grid">
+                                            {movieInfo.Poster !== 'N/A' ?
+                                                <div className="poster size-25">
+                                                    <img src={movieInfo.Poster} alt={movieInfo.Title}/>
+                                                </div> : ''}
+                                            <div className="movie-info size-auto">
+                                                <h1>{movieInfo.Title}</h1>
+                                                <ul className="info-list">
                                                     <li>
-                                                        Ratings:
-                                                        {ratings}
-                                                    </li> : ''
-                                                }
-                                            </ul>
+                                                        <span className="info-label">Year:</span> {movieInfo.Year}
+                                                    </li>
+                                                    <li>
+                                                        <span className="info-label">Released:</span> {movieInfo.Released}
+                                                    </li>
+                                                    <li>
+                                                        <span className="info-label">Country:</span> {movieInfo.Country}
+                                                    </li>
+                                                    <li>
+                                                        <span className="info-label">Genre:</span> {movieInfo.Genre}
+                                                    </li>
+                                                    <li>
+                                                        <span className="info-label">Runtime:</span> {movieInfo.Runtime}
+                                                    </li>
+                                                    <li>
+                                                        <span className="info-label">Production:</span> {movieInfo.Production}
+                                                    </li>
+                                                    <li>
+                                                        <span className="info-label">Director:</span> {movieInfo.Director}
+                                                    </li>
+                                                    <li>
+                                                        <span className="info-label">Writer:</span> {movieInfo.Writer}
+                                                    </li>
+                                                    <li>
+                                                        <span className="info-label">Actors:</span> {movieInfo.Actors}
+                                                    </li>
+                                                    <li>
+                                                        <span className="info-label">Awards:</span> {movieInfo.Awards}
+                                                    </li>
+                                                    {ratings ?
+                                                        <li>
+                                                            <span className="info-label">Ratings:</span>
+                                                            {ratings}
+                                                        </li> : ''
+                                                    }
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="movie-plot">
-                                        {movieInfo.Plot}
-                                    </div>
-                                </>}
-                        </div>
-                }
+                                        <div className="movie-plot">
+                                            {movieInfo.Plot}
+                                        </div>
+                                    </>}
+                            </div>
+                    }
+                </div>
             </div>
         );
     }
