@@ -51,7 +51,7 @@ export default class Search extends React.Component {
                                        aria-label="search-box"
                                        onChange={this.handleSearchInputChange}
                                        value={this.props.searchInputValue}
-                                       placeholder="What do you want to find?"
+                                       placeholder="What would you like to find?"
                                        autoComplete="off"
                                        className={this.props.searchResults && Object.keys(this.props.searchResults).length > 0 ? 'show-results' : ''}
                                 />
