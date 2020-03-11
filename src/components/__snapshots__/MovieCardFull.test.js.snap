@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieCardFull renders correctly 1`] = `
+<div
+  className="Movie-card-full"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="card-content"
+    >
+      <div
+        className="card-head grid"
+      >
+        <div
+          className="poster size-25"
+        >
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BOWVjZTIzNDYtNTBlNC00NTJjLTkzOTEtOTE0MjlhYzI2YTcyXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
+          />
+        </div>
+        <div
+          className="movie-info size-auto"
+        >
+          <h1 />
+          <ul
+            className="info-list"
+          >
+            <li>
+              <span
+                className="info-label"
+              >
+                Year:
+              </span>
+               
+              2002
+            </li>
+            <li>
+              <span
+                className="info-label"
+              >
+                Released:
+              </span>
+               
+              22 Mar 2002
+            </li>
+            <li>
+              <span
+                className="info-label"
+              >
+                Country:
+              </span>
+               
+              Germany, USA
+            </li>
+            <li>
+              <span
+                className="info-label"
+              >
+                Genre:
+              </span>
+               
+              Action, Horror, Sci-Fi, Thriller
+            </li>
+            <li>
+              <span
+                className="info-label"
+              >
+                Runtime:
+              </span>
+               
+              117 min
+            </li>
+            <li>
+              <span
+                className="info-label"
+              >
+                Production:
+              </span>
+               
+              New Line Cinema
+            </li>
+            <li>
+              <span
+                className="info-label"
+              >
+                Director:
+              </span>
+               
+              Guillermo del Toro
+            </li>
+            <li>
+              <span
+                className="info-label"
+              >
+                Writer:
+              </span>
+               
+              Marv Wolfman (character), Gene Colan (character), David S. Goyer
+            </li>
+            <li>
+              <span
+                className="info-label"
+              >
+                Actors:
+              </span>
+               
+              Wesley Snipes, Kris Kristofferson, Ron Perlman, Leonor Varela
+            </li>
+            <li>
+              <span
+                className="info-label"
+              >
+                Awards:
+              </span>
+               
+              6 wins & 10 nominations.
+            </li>
+            <li>
+              <span
+                className="info-label"
+              >
+                Ratings:
+              </span>
+              <ul
+                className="ratings-list"
+              >
+                <li>
+                  Internet Movie Database
+                   : 
+                  6.7/10
+                </li>
+                <li>
+                  Rotten Tomatoes
+                   : 
+                  57%
+                </li>
+                <li>
+                  Metacritic
+                   : 
+                  52/100
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        className="movie-plot"
+      >
+        A rare mutation has occurred within the vampire community. The Reaper. A vampire so consumed with an insatiable bloodlust that they prey on vampires as well as humans, transforming victims who are unlucky enough to survive into Reapers themselves. Now their quickly expanding population threatens the existence of vampires, and soon there won't be enough humans in the world to satisfy their bloodlust. Blade, Whistler (Yes, he's back) and an armory expert named Scud are curiously summoned by the Shadow Council. The council reluctantly admits that they are in a dire situation and they require Blade's assistance. Blade then tenuously enters into an alliance with The Bloodpack, an elite team of vampires trained in all modes of combat to defeat the Reaper threat. Blade's team and the Bloodpack are the only line of defense which can prevent the Reaper population from wiping out the vampire and human populations.
+      </div>
+    </div>
+  </div>
+</div>
+`;

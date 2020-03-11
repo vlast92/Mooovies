@@ -3,7 +3,7 @@ import Api from "../Api";
 import {getMovieRequestFailed, MAKING_GET_MOVIE_REQUEST, receiveMovieInfo} from "../actions";
 
 // Our worker Saga: will perform the movie get task
-function* makeGetMovieRequest(action) {
+export function* makeGetMovieRequest(action) {
     const {serverResponse, requestError} = yield call([Api, Api.getMovie], action.imdbID);
     if (requestError) {
         yield put(getMovieRequestFailed(requestError));

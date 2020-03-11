@@ -5,7 +5,7 @@ const initialState = {
     movieInfo: {}
 };
 
-const movie = (state = initialState, action) => {
+const movieReducer = (state = initialState, action) => {
     switch (action.type) {
         case MAKING_GET_MOVIE_REQUEST:
 
@@ -36,4 +36,4 @@ const movie = (state = initialState, action) => {
     }
 };
 
-export default movie;
+export default movieReducer;

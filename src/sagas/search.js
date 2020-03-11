@@ -9,7 +9,7 @@ import {
 } from "../actions";
 
 // Our worker Saga: will perform the movie search task
-function* makeSearchRequest(action) {
+export function* makeSearchRequest(action) {
     const {serverResponse, requestError} = yield call([Api, Api.search], action.searchWords);
     if (requestError) {
         yield put(searchingRequestFailed(requestError));
@@ -24,7 +24,7 @@ export function* watchSearchRequest() {
 }
 
 // Our worker Saga: will perform the movie card short click
-function* makeSearchResultsItemClick() {
+export function* makeSearchResultsItemClick() {
     yield put(clearSearchInput());
     yield put(clearSearchResults());
 }

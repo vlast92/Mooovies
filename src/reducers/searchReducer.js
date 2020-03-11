@@ -12,7 +12,7 @@ const initialState = {
     searchResults: {},
 };
 
-const search = (state = initialState, action) => {
+const searchReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case SEARCH_INPUT_CHANGE:
@@ -54,4 +54,4 @@ const search = (state = initialState, action) => {
     }
 };
 
-export default search;
+export default searchReducer;
