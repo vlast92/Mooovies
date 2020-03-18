@@ -1,30 +1,41 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import "../assets/scss/components/SearchResults.scss";
+import '../assets/scss/components/SearchResults.scss';
 
-import MovieCardShort from "./MovieCardShort";
+import MovieCardShort from './MovieCardShort';
 
-function SearchResults(props){
+function SearchResults(props) {
+	const { searchResults, onResultItemClick } = props;
+	let listContent;
 
-    const {searchResults, onResultItemClick} = props;
-    let listContent;
+	if (searchResults.Search) {
+		listContent = searchResults.Search.map(movie => (
+			<MovieCardShort
+				key={movie.imdbID}
+				movie={movie}
+				onClick={onResultItemClick}
+			/>
+		));
+	} else if (searchResults.Error) {
+		listContent = <div className="error">Error: {searchResults.Error}</div>;
+	}
 
-    if(searchResults.Search){
-        listContent = searchResults.Search.map(movie => <MovieCardShort key={movie.imdbID} movie={movie} onClick={onResultItemClick}/>);
-    }else if(searchResults.Error){
-        listContent = <div className="error">Error: {searchResults.Error}</div>;
-    }
-
-    return (
-        <>
-        {listContent? <div className="Search-results" aria-label="search-results">{listContent}</div> : ""}
-        </>
-    );
+	return (
+		<>
+			{listContent ? (
+				<div className="Search-results" aria-label="search-results">
+					{listContent}
+				</div>
+			) : (
+				''
+			)}
+		</>
+	);
 }
 
 export default SearchResults;
 
-SearchResults.propTypes ={
-    searchResults: PropTypes.object.isRequired,
-    onResultItemClick: PropTypes.func
+SearchResults.propTypes = {
+	searchResults: PropTypes.object.isRequired,
+	onResultItemClick: PropTypes.func,
 };

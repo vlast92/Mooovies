@@ -25,10 +25,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "eslint": "eslint src/"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app"
+    ]
   },
   "browserslist": {
     "production": [
@@ -43,7 +46,26 @@
     ]
   },
   "devDependencies": {
+    "eslint-config-prettier": "^6.10.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1",
     "react-router-dom": "^5.1.2",
     "redux-mock-store": "^1.5.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js}": [
+      "eslint src/ --max-warnings=0",
+      "prettier --write",
+      "npm test"
+    ],
+    "*.{scss}": [
+      "prettier --write"
+    ]
   }
 }

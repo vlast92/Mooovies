@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "react-app",
+    "prettier"
+  ],
+  "rules": {
+    "jsx-quotes": [
+      "warn",
+      "prefer-double"
+    ],
+    "key-spacing": [
+      "warn",
+      { "beforeColon": false }
+    ]
+  }
+}

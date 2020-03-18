@@ -1,32 +1,30 @@
-@import "../variables";
+@import '../variables';
 
-.Header{
-  background-color: #f1f1f1;
-  margin-bottom: 2rem;
-  padding: 1.5rem 0;
+.Header {
+	background-color: #f1f1f1;
+	margin-bottom: 2rem;
+	padding: 1.5rem 0;
 
-  .Logo{
+	.Logo {
+		@media all and (max-width: $large-phone-max-width) {
+			width: 100%;
+			flex-basis: 100%;
+			text-align: center;
+			margin-bottom: 1rem;
+		}
+	}
+	.search-outer {
+		@media all and (min-width: $large-phone-max-width + 1) {
+			margin-left: 2rem;
+		}
+		@media all and (max-width: $large-phone-max-width) {
+			width: 100%;
+			flex-basis: 100%;
 
-    @media all and (max-width: $large-phone-max-width){
-      width: 100%;
-      flex-basis: 100%;
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-  }
-  .search-outer{
-
-    @media all and (min-width: $large-phone-max-width + 1) {
-      margin-left: 2rem;
-    }
-    @media all and (max-width: $large-phone-max-width){
-      width: 100%;
-      flex-basis: 100%;
-
-      .search-content{
-        margin: 0 auto;
-        max-width: 18.75rem;
-      }
-    }
-  }
+			.search-content {
+				margin: 0 auto;
+				max-width: 18.75rem;
+			}
+		}
+	}
 }

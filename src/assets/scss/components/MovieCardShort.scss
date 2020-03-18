@@ -1,32 +1,32 @@
-@import "../variables";
+@import '../variables';
 
-.Movie-card-short{
-  text-align: left;
-  padding: 1rem;
-  border-bottom: .063rem solid #d2cbcb;
-  background-color: $movie-card-short-background-color;
-  color: #000;
-  text-decoration: none;
+.Movie-card-short {
+	text-align: left;
+	padding: 1rem;
+	border-bottom: 0.063rem solid #d2cbcb;
+	background-color: $movie-card-short-background-color;
+	color: #000;
+	text-decoration: none;
 
-  &:nth-last-of-type(1){
-    border-bottom: none;
-  }
-  &:hover{
-    background-color: darken($movie-card-short-background-color, 20%);
-  }
-  .movie-poster{
-    flex-basis: 2rem;
-  }
-  .movie-info{
-    flex: 1;
-    padding: 0 .75rem;
+	&:nth-last-of-type(1) {
+		border-bottom: none;
+	}
+	&:hover {
+		background-color: darken($movie-card-short-background-color, 20%);
+	}
+	.movie-poster {
+		flex-basis: 2rem;
+	}
+	.movie-info {
+		flex: 1;
+		padding: 0 0.75rem;
 
-    .movie-title{
-      font-weight: bold;
-    }
-    .movie-year{
-      font-size: .8rem;
-      color: grey;
-    }
-  }
+		.movie-title {
+			font-weight: bold;
+		}
+		.movie-year {
+			font-size: 0.8rem;
+			color: grey;
+		}
+	}
 }

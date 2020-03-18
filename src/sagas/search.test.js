@@ -1,84 +1,94 @@
-import {takeLatest} from "redux-saga/effects";
-import {runSaga} from 'redux-saga';
-import Api from "../Api";
+import { takeLatest } from 'redux-saga/effects';
+import { runSaga } from 'redux-saga';
+import Api from '../Api';
 import {
-    watchSearchResultsItemClicked,
-    makeSearchResultsItemClick,
-    watchSearchRequest,
-    makeSearchRequest
-} from "./search";
+	watchSearchResultsItemClicked,
+	makeSearchResultsItemClick,
+	watchSearchRequest,
+	makeSearchRequest,
+} from './search';
 import {
-    SEARCH_RESULTS_ITEM_CLICKED,
-    clearSearchInput,
-    clearSearchResults,
-    MAKING_SEARCH_REQUEST,
-    receiveSearchResult
-} from "../actions";
+	SEARCH_RESULTS_ITEM_CLICKED,
+	clearSearchInput,
+	clearSearchResults,
+	MAKING_SEARCH_REQUEST,
+	receiveSearchResult,
+} from '../actions';
 
 describe('Testing search Saga', () => {
+	test('watchSearchResultsItemClicked should process latest SEARCH_RESULTS_ITEM_CLICKED action, call makeSearchResultsItemClick and should be done on next iteration', () => {
+		const genObject = watchSearchResultsItemClicked();
 
-    test('watchSearchResultsItemClicked should process latest SEARCH_RESULTS_ITEM_CLICKED action, call makeSearchResultsItemClick and should be done on next iteration', () => {
+		expect(genObject.next().value).toEqual(
+			takeLatest(SEARCH_RESULTS_ITEM_CLICKED, makeSearchResultsItemClick)
+		);
+		expect(genObject.next().done).toBeTruthy();
+	});
 
-        const genObject = watchSearchResultsItemClicked();
+	test('makeSearchResultsItemClick should call clearSearchInput and clearSearchResults', () => {
+		const dispatched = [];
 
-        expect(genObject.next().value)
-            .toEqual(takeLatest(SEARCH_RESULTS_ITEM_CLICKED, makeSearchResultsItemClick));
-        expect(genObject.next().done).toBeTruthy();
-    });
+		runSaga(
+			{
+				dispatch: action => dispatched.push(action),
+			},
+			makeSearchResultsItemClick
+		);
 
-    test('makeSearchResultsItemClick should call clearSearchInput and clearSearchResults', () => {
+		expect(dispatched).toEqual([clearSearchInput(), clearSearchResults()]);
+	});
 
-        const dispatched = [];
+	test('watchSearchRequest should process latest MAKING_SEARCH_REQUEST action, call makeSearchRequest and should be done on next iteration', () => {
+		const genObject = watchSearchRequest();
 
-        runSaga({
-            dispatch: (action) => dispatched.push(action),
-        }, makeSearchResultsItemClick);
+		expect(genObject.next().value).toEqual(
+			takeLatest(MAKING_SEARCH_REQUEST, makeSearchRequest)
+		);
+		expect(genObject.next().done).toBeTruthy();
+	});
 
-        expect(dispatched).toEqual([clearSearchInput(), clearSearchResults()]);
-    });
+	test('makeSearchRequest should call api and dispatch success action', async () => {
+		const dummySearchWords = 'Blade runner';
+		const dummySearchResults = {
+			Search: [
+				{
+					Title: 'Blade Runner',
+					Year: '1982',
+					imdbID: 'tt0083658',
+					Type: 'movie',
+					Poster:
+						'https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg',
+				},
+				{
+					Title: 'Blade Runner 2049',
+					Year: '2017',
+					imdbID: 'tt1856101',
+					Type: 'movie',
+					Poster:
+						'https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg',
+				},
+			],
+			totalResults: '2',
+			Response: 'True',
+		};
 
-    test('watchSearchRequest should process latest MAKING_SEARCH_REQUEST action, call makeSearchRequest and should be done on next iteration', () => {
+		const search = jest.spyOn(Api, 'search').mockImplementation(() =>
+			Promise.resolve({
+				serverResponse: dummySearchResults,
+				requestError: '',
+			})
+		);
 
-        const genObject = watchSearchRequest();
+		const dispatched = [];
+		await runSaga(
+			{
+				dispatch: action => dispatched.push(action),
+			},
+			makeSearchRequest,
+			dummySearchWords
+		);
 
-        expect(genObject.next().value)
-            .toEqual(takeLatest(MAKING_SEARCH_REQUEST, makeSearchRequest));
-        expect(genObject.next().done).toBeTruthy();
-    });
-
-    test('makeSearchRequest should call api and dispatch success action', async () => {
-
-        const dummySearchWords = "Blade runner";
-        const dummySearchResults = {
-            Search: [
-                {
-                    Title: 'Blade Runner',
-                    Year: '1982',
-                    imdbID: 'tt0083658',
-                    Type: 'movie',
-                    Poster: 'https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg'
-                },
-                {
-                    Title: 'Blade Runner 2049',
-                    Year: '2017',
-                    imdbID: 'tt1856101',
-                    Type: 'movie',
-                    Poster: 'https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg'
-                }
-            ],
-            totalResults: '2',
-            Response: 'True'
-        };
-
-        const search = jest.spyOn(Api, 'search')
-            .mockImplementation(() => Promise.resolve({serverResponse: dummySearchResults, requestError: ''}));
-
-        const dispatched = [];
-        await runSaga({
-            dispatch: (action) => dispatched.push(action),
-        }, makeSearchRequest, dummySearchWords);
-
-        expect(search).toHaveBeenCalledTimes(1);
-        expect(dispatched).toEqual([receiveSearchResult(dummySearchResults)]);
-    });
+		expect(search).toHaveBeenCalledTimes(1);
+		expect(dispatched).toEqual([receiveSearchResult(dummySearchResults)]);
+	});
 });

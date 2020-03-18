@@ -1,71 +1,66 @@
-import React from "react";
-import configureStore from 'redux-mock-store'
-import {mount} from 'enzyme';
-import {Provider} from 'react-redux';
+import React from 'react';
+import configureStore from 'redux-mock-store';
+import { mount } from 'enzyme';
+import { Provider } from 'react-redux';
 
-import VisibleMovieCardFull from "./VisibleMovieCardFull";
-import MovieCardFull from "../components/MovieCardFull";
+import VisibleMovieCardFull from './VisibleMovieCardFull';
+import MovieCardFull from '../components/MovieCardFull';
 import {
-    MAKING_GET_MOVIE_REQUEST,
-    CLEAR_MOVIE_INFO,
-    clearMovieInfo
+	MAKING_GET_MOVIE_REQUEST,
+	CLEAR_MOVIE_INFO,
+	clearMovieInfo,
 } from '../actions';
-import {
-    MemoryRouter,
-    Switch,
-    Route
-} from "react-router-dom";
+import { MemoryRouter, Switch, Route } from 'react-router-dom';
 
 describe('VisibleMovieCardFull --- REACT-REDUX (Mount + wrapping in <Provider> + <Router>)', () => {
+	const initialState = {
+		movie: {
+			movieLoading: false,
+			movieInfo: {},
+		},
+	};
+	const mockStore = configureStore();
+	let store, container;
 
-    const initialState = {
-        movie: {
-            movieLoading: false,
-            movieInfo: {}
-        }
-    };
-    const mockStore = configureStore();
-    let store, container;
+	beforeEach(() => {
+		store = mockStore(initialState);
+		container = mount(
+			<Provider store={store}>
+				<MemoryRouter initialEntries={['/tt0083658']}>
+					<Switch>
+						<Route path="/:imdbID">
+							<VisibleMovieCardFull store={store} />
+						</Route>
+					</Switch>
+				</MemoryRouter>
+			</Provider>
+		);
+	});
 
-    beforeEach(() => {
+	test('renders without crashing', () => {
+		expect(container.find(MovieCardFull).length).toBe(1);
+	});
 
-        store = mockStore(initialState);
-        container = mount(
-            <Provider store={store}>
-                <MemoryRouter initialEntries={['/tt0083658']}>
-                    <Switch>
-                        <Route path="/:imdbID">
-                            <VisibleMovieCardFull store={store}/>
-                        </Route>
-                    </Switch>
-                </MemoryRouter>
-            </Provider>
-        );
-    });
+	test('check props matches with initial state', () => {
+		expect(container.find(MovieCardFull).prop('movieLoading')).toBe(
+			initialState.movie.movieLoading
+		);
+		expect(container.find(MovieCardFull).prop('movieInfo')).toBe(
+			initialState.movie.movieInfo
+		);
+	});
 
-    test('renders without crashing', () => {
+	test('check actions on dispatch', () => {
+		const imdbID = 'tt0083658';
 
-        expect(container.find(MovieCardFull).length).toBe(1);
-    });
+		store.dispatch(clearMovieInfo());
 
-    test('check props matches with initial state', () => {
+		const action = store.getActions();
 
-        expect(container.find(MovieCardFull).prop("movieLoading")).toBe(initialState.movie.movieLoading);
-        expect(container.find(MovieCardFull).prop("movieInfo")).toBe(initialState.movie.movieInfo);
-    });
-
-    test('check actions on dispatch', () => {
-
-        const imdbID = "tt0083658";
-
-        store.dispatch(clearMovieInfo());
-
-        const action = store.getActions();
-
-        expect(action[0]).toEqual({
-            type: MAKING_GET_MOVIE_REQUEST,
-            imdbID
-        });
-        expect(action[1].type).toBe(CLEAR_MOVIE_INFO);
-    });
+		expect(action[0]).toEqual({
+			type: MAKING_GET_MOVIE_REQUEST,
+			imdbID,
+		});
+		expect(action[1].type).toBe(CLEAR_MOVIE_INFO);
+	});
 });

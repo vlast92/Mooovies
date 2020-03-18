@@ -1,15 +1,12 @@
-import React from "react";
-import "../assets/scss/components/Footer.scss"
+import React from 'react';
+import '../assets/scss/components/Footer.scss';
 
 function Footer() {
-
-    return (
-        <footer className="Footer">
-            <div className="container">
-                © 2020 moovie
-            </div>
-        </footer>
-    );
+	return (
+		<footer className="Footer">
+			<div className="container">© 2020 moovie</div>
+		</footer>
+	);
 }
 
 export default Footer;

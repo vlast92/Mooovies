@@ -1,38 +1,37 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
-html{
-  font-size: 100%;
+html {
+	font-size: 100%;
 }
-body{
-  margin: 0;
-  font-size: 1rem;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.25;
-  background-size: cover;
+body {
+	margin: 0;
+	font-size: 1rem;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+	line-height: 1.25;
+	background-size: cover;
 }
-p{
-  margin: 1rem 0;
+p {
+	margin: 1rem 0;
 }
-input{
-  box-sizing: border-box;
+input {
+	box-sizing: border-box;
 }
-img{
-  max-width: 100%;
+img {
+	max-width: 100%;
 }
-a{
-  transition: .3s;
+a {
+	transition: 0.3s;
 }
-div{
-  box-sizing: border-box;
+div {
+	box-sizing: border-box;
 }
-main{
-  margin-bottom: 2rem;
+main {
+	margin-bottom: 2rem;
 }
 
-@for $i from 1 through 6{
-
-  h#{$i}{
-    margin: 0 0 1rem;
-  }
+@for $i from 1 through 6 {
+	h#{$i} {
+		margin: 0 0 1rem;
+	}
 }

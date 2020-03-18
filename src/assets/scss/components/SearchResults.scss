@@ -1,23 +1,24 @@
-@import "../variables";
+@import '../variables';
 
-.Search-results{
-  transition: .3s;
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  width: 100%;
-  max-height: 15.7rem;
-  overflow: auto;
-  background: #fff;
-  border: $search-border;
-  border-top-style: none;
-  border-radius: 0 0 $search-border-radius $search-border-radius;
+.Search-results {
+	transition: 0.3s;
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	width: 100%;
+	max-height: 15.7rem;
+	overflow: auto;
+	background: #fff;
+	border: $search-border;
+	border-top-style: none;
+	border-radius: 0 0 $search-border-radius $search-border-radius;
 
-  &:hover, &:focus-within{
-    opacity: 1;
-    visibility: visible;
-  }
-  > *{
-    padding: 1rem;
-  }
+	&:hover,
+	&:focus-within {
+		opacity: 1;
+		visibility: visible;
+	}
+	> * {
+		padding: 1rem;
+	}
 }
