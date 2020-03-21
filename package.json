@@ -27,6 +27,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "eslint": "eslint src/",
+    "formatting": "prettier --write src/**/*.js&&prettier --write src/**/*.scss",
     "test:staged": "cross-env CI=true react-scripts test --env=jsdom --findRelatedTests"
   },
   "eslintConfig": {
