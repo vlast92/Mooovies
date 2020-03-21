@@ -1,0 +1,20 @@
+@import './src/utils/scss/base';
+@import './src/utils/scss/grid';
+
+.app-content {
+	min-height: 100vh;
+}
+
+.container {
+	padding: 0 1rem;
+	margin: 0 auto;
+	max-width: 75rem;
+
+	.app-content.Home-page & {
+		max-width: 40rem;
+	}
+}
+
+.error {
+	color: red;
+}

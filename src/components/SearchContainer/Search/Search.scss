@@ -1,0 +1,45 @@
+@import './src/utils/scss/variables';
+
+.Search {
+	text-align: center;
+
+	.search-content {
+		position: relative;
+		max-width: 25rem;
+
+		.app-content.Home-page & {
+			margin: 0 auto;
+		}
+		.search-wrap {
+			position: relative;
+
+			input {
+				padding: 0.5rem 2rem 0.5rem 1rem;
+				width: 100%;
+				border: $search-border;
+				border-radius: $search-border-radius;
+
+				&.show-results {
+					&:focus,
+					&:hover {
+						outline: none;
+						border-radius: $search-border-radius $search-border-radius 0 0;
+					}
+				}
+			}
+			.Load-indicator {
+				position: absolute;
+				top: 50%;
+				right: 0;
+				transform: translateY(-50%);
+			}
+			&:hover,
+			&:focus-within {
+				+ .Search-results {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+	}
+}

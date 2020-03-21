@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieCardShort renders correctly 1`] = `
+<a
+  className="Movie-card-short grid align-items-center"
+  href="/movie-details/tt0187738"
+  onClick={[Function]}
+>
+  <div
+    className="movie-poster"
+  >
+    <img
+      alt="Blade II"
+      src="https://m.media-amazon.com/images/M/MV5BOWVjZTIzNDYtNTBlNC00NTJjLTkzOTEtOTE0MjlhYzI2YTcyXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
+    />
+  </div>
+  <div
+    className="movie-info"
+  >
+    <div
+      className="movie-title"
+    >
+      Blade II
+    </div>
+    <div
+      className="movie-year"
+    >
+      Year: 
+      2002
+    </div>
+  </div>
+</a>
+`;

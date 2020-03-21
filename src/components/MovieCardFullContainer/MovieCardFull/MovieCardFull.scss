@@ -1,0 +1,53 @@
+@import './src/utils/scss/variables';
+
+.Movie-card-full {
+	.poster {
+		@media all and (min-width: $table-max-width + 1) {
+			margin-right: 2rem;
+		}
+		@media all and (max-width: $table-max-width) {
+			width: 100%;
+			flex-basis: 100%;
+			text-align: center;
+			margin-bottom: 2rem;
+		}
+	}
+
+	.movie-info {
+		h1 {
+			@media all and (max-width: $table-max-width) {
+				text-align: center;
+			}
+		}
+		.info-list {
+			padding: 0;
+			list-style: none;
+
+			li {
+				margin-bottom: 0.5rem;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+
+				.info-label {
+					font-weight: bold;
+				}
+
+				.ratings-list {
+					margin-top: 0.5rem;
+					padding-left: 1.25rem;
+				}
+			}
+		}
+	}
+
+	.movie-plot {
+		margin-top: 2rem;
+
+		@media all and (max-width: $table-max-width) {
+			text-align: justify;
+			text-align-last: center;
+		}
+	}
+}
