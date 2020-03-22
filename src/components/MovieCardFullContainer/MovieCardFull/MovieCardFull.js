@@ -1,7 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './MovieCardFull.scss';
+import baseStyles from '../../../scss/Base.module.scss';
+import gridStyles from '../../../scss/Grid.module.scss';
+import componentStyle from './MovieCardFull.module.scss';
 
 import LoadIndicator from '../../LoadIndicator';
 
@@ -28,7 +30,7 @@ class MovieCardFull extends React.Component {
 
 		if (movieInfo.Ratings) {
 			ratings = (
-				<ul className="ratings-list">
+				<ul className={componentStyle.ratingsList}>
 					{movieInfo.Ratings.map(rating => (
 						<li key={rating.Source}>
 							{rating.Source} : {rating.Value}
@@ -39,70 +41,80 @@ class MovieCardFull extends React.Component {
 		}
 
 		return (
-			<div className="Movie-card-full">
-				<div className="container">
+			<div className={componentStyle.component}>
+				<div className={baseStyles.container}>
 					{movieLoading ? (
 						<LoadIndicator text="Loading movie info..." />
 					) : (
-						<div className="card-content">
+						<div>
 							{movieInfo.Error ? (
-								<div className="error">Error: {movieInfo.Error}</div>
+								<div className={baseStyles.error}>Error: {movieInfo.Error}</div>
 							) : (
 								<>
-									<div className="card-head grid">
+									<div className={gridStyles.flex}>
 										{movieInfo.Poster !== 'N/A' ? (
-											<div className="poster size-25">
+											<div
+												className={`${componentStyle.poster} ${gridStyles.size25}`}>
 												<img src={movieInfo.Poster} alt={movieInfo.Title} />
 											</div>
 										) : (
 											''
 										)}
-										<div className="movie-info size-auto">
+										<div
+											className={`${componentStyle.info} ${gridStyles.sizeAuto}`}>
 											<h1>{movieInfo.Title}</h1>
-											<ul className="info-list">
+											<ul className={componentStyle.infoList}>
 												<li>
-													<span className="info-label">Year:</span>{' '}
+													<span className={componentStyle.label}>Year:</span>{' '}
 													{movieInfo.Year}
 												</li>
 												<li>
-													<span className="info-label">Released:</span>{' '}
+													<span className={componentStyle.label}>
+														Released:
+													</span>{' '}
 													{movieInfo.Released}
 												</li>
 												<li>
-													<span className="info-label">Country:</span>{' '}
+													<span className={componentStyle.label}>Country:</span>{' '}
 													{movieInfo.Country}
 												</li>
 												<li>
-													<span className="info-label">Genre:</span>{' '}
+													<span className={componentStyle.label}>Genre:</span>{' '}
 													{movieInfo.Genre}
 												</li>
 												<li>
-													<span className="info-label">Runtime:</span>{' '}
+													<span className={componentStyle.label}>Runtime:</span>{' '}
 													{movieInfo.Runtime}
 												</li>
 												<li>
-													<span className="info-label">Production:</span>{' '}
+													<span className={componentStyle.label}>
+														Production:
+													</span>{' '}
 													{movieInfo.Production}
 												</li>
 												<li>
-													<span className="info-label">Director:</span>{' '}
+													<span className={componentStyle.label}>
+														Director:
+													</span>{' '}
 													{movieInfo.Director}
 												</li>
 												<li>
-													<span className="info-label">Writer:</span>{' '}
+													<span className={componentStyle.label}>Writer:</span>{' '}
 													{movieInfo.Writer}
 												</li>
 												<li>
-													<span className="info-label">Actors:</span>{' '}
+													<span className={componentStyle.label}>Actors:</span>{' '}
 													{movieInfo.Actors}
 												</li>
 												<li>
-													<span className="info-label">Awards:</span>{' '}
+													<span className={componentStyle.label}>Awards:</span>{' '}
 													{movieInfo.Awards}
 												</li>
 												{ratings ? (
 													<li>
-														<span className="info-label">Ratings:</span>
+														<span className={componentStyle.label}>
+															Ratings:
+														</span>
 														{ratings}
 													</li>
 												) : (
@@ -111,7 +123,7 @@ class MovieCardFull extends React.Component {
 											</ul>
 										</div>
 									</div>
-									<div className="movie-plot">{movieInfo.Plot}</div>
+									<div className={componentStyle.plot}>{movieInfo.Plot}</div>
 								</>
 							)}
 						</div>

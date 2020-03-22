@@ -1,15 +1,21 @@
 import React from 'react';
-import './Header.scss';
+import componentStyles from './Header.module.scss';
+import baseStyles from '../../scss/Base.module.scss';
+import gridStyles from '../../scss/Grid.module.scss';
 
 import Logo from '../Logo';
 import SearchContainer from '../SearchContainer';
 
 function Header() {
 	return (
-		<header className="Header">
-			<div className="container grid align-items-center">
-				<Logo />
-				<div className="size-auto search-outer">
+		<header className={componentStyles.component}>
+			<div
+				className={`${baseStyles.container} ${gridStyles.flex} ${gridStyles.alignItemsCenter}`}>
+				<div className={componentStyles.logoOuter}>
+					<Logo />
+				</div>
+				<div
+					className={`${componentStyles.searchOuter} ${gridStyles.sizeAuto}`}>
 					<SearchContainer />
 				</div>
 			</div>

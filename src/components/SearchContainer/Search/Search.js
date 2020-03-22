@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Search.scss';
+import componentStyles from './Search.module.scss';
 
 import SearchResultsContainer from './SearchResultsContainer';
 import LoadIndicator from '../../LoadIndicator';
@@ -44,9 +44,9 @@ export default class Search extends React.Component {
 	render() {
 		return (
 			<>
-				<div className="Search">
-					<div className="search-content">
-						<div className="search-wrap">
+				<div className={componentStyles.component}>
+					<div className={componentStyles.content}>
+						<div className={componentStyles.inputWrap}>
 							<input
 								name="searchInput"
 								aria-label="search-box"
@@ -61,7 +61,13 @@ export default class Search extends React.Component {
 										: ''
 								}
 							/>
-							{this.props.loading ? <LoadIndicator /> : ''}
+							{this.props.loading ? (
+								<div className={componentStyles.loadIndicatorOuter}>
+									<LoadIndicator />
+								</div>
+							) : (
+								''
+							)}
 						</div>
 						<SearchResultsContainer />
 					</div>

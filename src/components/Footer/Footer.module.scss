@@ -1,0 +1,14 @@
+.component {
+	text-align: center;
+	padding: 2rem 0;
+
+	&.style_1 {
+		@media all and (max-height: 823px) {
+			margin-top: auto;
+		}
+	}
+	&.style_2 {
+		margin-top: auto;
+		background-color: #f1f1f1;
+	}
+}

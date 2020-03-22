@@ -2,12 +2,12 @@
 
 exports[`MovieCardShort renders correctly 1`] = `
 <a
-  className="Movie-card-short grid align-items-center"
+  className="component flex alignItemsCenter"
   href="/movie-details/tt0187738"
   onClick={[Function]}
 >
   <div
-    className="movie-poster"
+    className="poster"
   >
     <img
       alt="Blade II"
@@ -15,15 +15,15 @@ exports[`MovieCardShort renders correctly 1`] = `
     />
   </div>
   <div
-    className="movie-info"
+    className="info"
   >
     <div
-      className="movie-title"
+      className="title"
     >
       Blade II
     </div>
     <div
-      className="movie-year"
+      className="year"
     >
       Year: 
       2002

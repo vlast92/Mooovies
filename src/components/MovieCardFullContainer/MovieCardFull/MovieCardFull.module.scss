@@ -1,6 +1,6 @@
-@import './src/utils/scss/variables';
+@import './src/scss/variables';
 
-.Movie-card-full {
+.component {
 	.poster {
 		@media all and (min-width: $table-max-width + 1) {
 			margin-right: 2rem;
@@ -13,13 +13,13 @@
 		}
 	}
 
-	.movie-info {
+	.info {
 		h1 {
 			@media all and (max-width: $table-max-width) {
 				text-align: center;
 			}
 		}
-		.info-list {
+		.infoList {
 			padding: 0;
 			list-style: none;
 
@@ -30,11 +30,11 @@
 					margin-bottom: 0;
 				}
 
-				.info-label {
+				.label {
 					font-weight: bold;
 				}
 
-				.ratings-list {
+				.ratingsList {
 					margin-top: 0.5rem;
 					padding-left: 1.25rem;
 				}
@@ -42,7 +42,7 @@
 		}
 	}
 
-	.movie-plot {
+	.plot {
 		margin-top: 2rem;
 
 		@media all and (max-width: $table-max-width) {

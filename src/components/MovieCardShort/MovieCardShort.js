@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './MovieCardShort.scss';
+import gridStyles from '../../scss/Grid.module.scss';
+import componentStyles from './MovieCardShort.module.scss';
 
 function MovieCardShort(props) {
 	const { movie, onClick } = props;
@@ -10,18 +11,18 @@ function MovieCardShort(props) {
 		<Link
 			to={`/movie-details/${movie.imdbID}`}
 			onClick={onClick}
-			className="Movie-card-short grid align-items-center"
+			className={`${componentStyles.component} ${gridStyles.flex} ${gridStyles.alignItemsCenter}`}
 			key={movie.imdbID}>
 			{movie.Poster !== 'N/A' ? (
-				<div className="movie-poster">
+				<div className={componentStyles.poster}>
 					<img src={movie.Poster} alt={movie.Title} />
 				</div>
 			) : (
 				''
 			)}
-			<div className="movie-info">
-				<div className="movie-title">{movie.Title}</div>
-				<div className="movie-year">Year: {movie.Year}</div>
+			<div className={componentStyles.info}>
+				<div className={componentStyles.title}>{movie.Title}</div>
+				<div className={componentStyles.year}>Year: {movie.Year}</div>
 			</div>
 		</Link>
 	);

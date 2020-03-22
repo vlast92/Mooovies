@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './SearchResults.scss';
+import baseStyles from '../../../../../scss/Base.module.scss';
+import componentStyles from './SearchResults.module.scss';
 
 import MovieCardShort from '../../../../MovieCardShort';
 
@@ -17,13 +18,15 @@ function SearchResults(props) {
 			/>
 		));
 	} else if (searchResults.Error) {
-		listContent = <div className="error">Error: {searchResults.Error}</div>;
+		listContent = (
+			<div className={baseStyles.error}>Error: {searchResults.Error}</div>
+		);
 	}
 
 	return (
 		<>
 			{listContent ? (
-				<div className="Search-results" aria-label="search-results">
+				<div className={componentStyles.component} aria-label="search-results">
 					{listContent}
 				</div>
 			) : (

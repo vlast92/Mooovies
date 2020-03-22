@@ -35,3 +35,21 @@ main {
 		margin: 0 0 1rem;
 	}
 }
+
+.container {
+	padding: 0 1rem;
+	margin: 0 auto;
+	max-width: 75rem;
+}
+.containerSmall {
+	@extend .container;
+	max-width: 40rem;
+}
+
+.appContent {
+	min-height: 100vh;
+}
+
+.error {
+	color: red;
+}

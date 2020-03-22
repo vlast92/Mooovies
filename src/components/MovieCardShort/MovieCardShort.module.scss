@@ -1,6 +1,6 @@
-@import './src/utils/scss/variables';
+@import './src/scss/variables';
 
-.Movie-card-short {
+.component {
 	text-align: left;
 	padding: 1rem;
 	border-bottom: 0.063rem solid #d2cbcb;
@@ -14,17 +14,17 @@
 	&:hover {
 		background-color: darken($movie-card-short-background-color, 20%);
 	}
-	.movie-poster {
+	.poster {
 		flex-basis: 2rem;
 	}
-	.movie-info {
+	.info {
 		flex: 1;
 		padding: 0 0.75rem;
 
-		.movie-title {
+		.title {
 			font-weight: bold;
 		}
-		.movie-year {
+		.year {
 			font-size: 0.8rem;
 			color: grey;
 		}

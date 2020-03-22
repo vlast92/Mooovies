@@ -1,0 +1,12 @@
+.component {
+	margin: 0 auto 1rem;
+	text-align: center;
+
+	.text {
+		font-size: 1.5rem;
+
+		@media all and (max-width: 500px) {
+			font-size: 1.25rem;
+		}
+	}
+}

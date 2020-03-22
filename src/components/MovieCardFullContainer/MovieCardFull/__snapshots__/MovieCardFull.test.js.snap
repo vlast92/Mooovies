@@ -2,34 +2,32 @@
 
 exports[`MovieCardFull renders correctly 1`] = `
 <div
-  className="Movie-card-full"
+  className="component"
 >
   <div
     className="container"
   >
-    <div
-      className="card-content"
-    >
+    <div>
       <div
-        className="card-head grid"
+        className="flex"
       >
         <div
-          className="poster size-25"
+          className="poster size25"
         >
           <img
             src="https://m.media-amazon.com/images/M/MV5BOWVjZTIzNDYtNTBlNC00NTJjLTkzOTEtOTE0MjlhYzI2YTcyXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
           />
         </div>
         <div
-          className="movie-info size-auto"
+          className="info sizeAuto"
         >
           <h1 />
           <ul
-            className="info-list"
+            className="infoList"
           >
             <li>
               <span
-                className="info-label"
+                className="label"
               >
                 Year:
               </span>
@@ -38,7 +36,7 @@ exports[`MovieCardFull renders correctly 1`] = `
             </li>
             <li>
               <span
-                className="info-label"
+                className="label"
               >
                 Released:
               </span>
@@ -47,7 +45,7 @@ exports[`MovieCardFull renders correctly 1`] = `
             </li>
             <li>
               <span
-                className="info-label"
+                className="label"
               >
                 Country:
               </span>
@@ -56,7 +54,7 @@ exports[`MovieCardFull renders correctly 1`] = `
             </li>
             <li>
               <span
-                className="info-label"
+                className="label"
               >
                 Genre:
               </span>
@@ -65,7 +63,7 @@ exports[`MovieCardFull renders correctly 1`] = `
             </li>
             <li>
               <span
-                className="info-label"
+                className="label"
               >
                 Runtime:
               </span>
@@ -74,7 +72,7 @@ exports[`MovieCardFull renders correctly 1`] = `
             </li>
             <li>
               <span
-                className="info-label"
+                className="label"
               >
                 Production:
               </span>
@@ -83,7 +81,7 @@ exports[`MovieCardFull renders correctly 1`] = `
             </li>
             <li>
               <span
-                className="info-label"
+                className="label"
               >
                 Director:
               </span>
@@ -92,7 +90,7 @@ exports[`MovieCardFull renders correctly 1`] = `
             </li>
             <li>
               <span
-                className="info-label"
+                className="label"
               >
                 Writer:
               </span>
@@ -101,7 +99,7 @@ exports[`MovieCardFull renders correctly 1`] = `
             </li>
             <li>
               <span
-                className="info-label"
+                className="label"
               >
                 Actors:
               </span>
@@ -110,7 +108,7 @@ exports[`MovieCardFull renders correctly 1`] = `
             </li>
             <li>
               <span
-                className="info-label"
+                className="label"
               >
                 Awards:
               </span>
@@ -119,12 +117,12 @@ exports[`MovieCardFull renders correctly 1`] = `
             </li>
             <li>
               <span
-                className="info-label"
+                className="label"
               >
                 Ratings:
               </span>
               <ul
-                className="ratings-list"
+                className="ratingsList"
               >
                 <li>
                   Internet Movie Database
@@ -147,7 +145,7 @@ exports[`MovieCardFull renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="movie-plot"
+        className="plot"
       >
         A rare mutation has occurred within the vampire community. The Reaper. A vampire so consumed with an insatiable bloodlust that they prey on vampires as well as humans, transforming victims who are unlucky enough to survive into Reapers themselves. Now their quickly expanding population threatens the existence of vampires, and soon there won't be enough humans in the world to satisfy their bloodlust. Blade, Whistler (Yes, he's back) and an armory expert named Scud are curiously summoned by the Shadow Council. The council reluctantly admits that they are in a dire situation and they require Blade's assistance. Blade then tenuously enters into an alliance with The Bloodpack, an elite team of vampires trained in all modes of combat to defeat the Reaper threat. Blade's team and the Bloodpack are the only line of defense which can prevent the Reaper population from wiping out the vampire and human populations.
       </div>

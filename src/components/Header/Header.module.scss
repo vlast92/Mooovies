@@ -1,11 +1,11 @@
-@import './src/utils/scss/variables';
+@import './src/scss/variables';
 
-.Header {
+.component {
 	background-color: #f1f1f1;
 	margin-bottom: 2rem;
 	padding: 1.5rem 0;
 
-	.Logo {
+	.logoOuter {
 		@media all and (max-width: $large-phone-max-width) {
 			width: 100%;
 			flex-basis: 100%;
@@ -13,7 +13,8 @@
 			margin-bottom: 1rem;
 		}
 	}
-	.search-outer {
+
+	.searchOuter {
 		@media all and (min-width: $large-phone-max-width + 1) {
 			margin-left: 2rem;
 		}
@@ -21,7 +22,7 @@
 			width: 100%;
 			flex-basis: 100%;
 
-			.search-content {
+			:global div[class^='Search_content'] {
 				margin: 0 auto;
 				max-width: 18.75rem;
 			}
